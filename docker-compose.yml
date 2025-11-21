@@ -1,0 +1,32 @@
+name: PostgresWithAPIWithAngular
+services:
+  postgres:
+    build:
+      context: ./postgres
+      dockerfile: DockerFile
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+
+  api:
+    depends_on:
+      - postgres
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+  angular:
+    depends_on:
+      - api
+    build:
+      context: ./angular/MovieAngular
+      dockerfile: DockerFile
+    ports:
+      - "4200:8080"

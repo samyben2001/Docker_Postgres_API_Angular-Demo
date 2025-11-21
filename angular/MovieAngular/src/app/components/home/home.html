@@ -1,0 +1,23 @@
+@if (films) {
+
+    <div style="width: 75%; margin: auto">
+        <div  style="display: flex; justify-content: space-between; width: 100%; font-weight: 700;border-bottom: 1px solid black; padding-bottom: 5px; text-align: center;">
+            <span style="width: 15%;">Id</span>
+            <span style="width: 35%;">Titre FR</span>
+            <span style="width: 35%;">Titre CA</span>
+            <span style="width: 15%;">Année</span>
+        </div>
+        @for (film of films; track $index) {
+            <div  style="display: flex; justify-content: space-between; width: 100%; border-bottom: 1px solid black; padding-top:5px; padding-bottom: 5px; text-align: center;">
+                <span style="width: 15%;">{{film.id}}</span>
+                <span style="width: 35%;">{{film.titreFR}}</span>
+                <span style="width: 35%;">{{film.titreCA}}</span>
+                <span style="width: 15%;">{{film.annee}}</span>
+            </div>
+        }@empty {
+            <p>Aucun films...</p>
+        }
+    </div>
+}@else {
+    <p>Chargement des films...</p>
+}
