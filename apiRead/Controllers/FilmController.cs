@@ -21,11 +21,11 @@ namespace MovieAPI.Controllers
         {
             try
             {
-                IEnumerable<Film> films = _dbConnection.ExecuteReader("SELECT id, titre_fr, titre_ca, annee FROM film", reader => new Film
+                IEnumerable<Film> films = _dbConnection.ExecuteReader("SELECT id, titrefr, titreca, annee FROM film", reader => new Film
                 (
                     (int)reader["id"],
-                    (string)reader["titre_fr"],
-                    (string)reader["titre_ca"],
+                    (string)reader["titrefr"],
+                    (string)reader["titreca"],
                     (int)reader["annee"]
                 )).ToList();
 

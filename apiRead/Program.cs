@@ -8,7 +8,7 @@ IConfiguration configuration = builder.Configuration;
 string connectionString = configuration.GetConnectionString("Default")!;
 
 // Add Cors
-string corsPolicyName = "RapAddictCors";
+string corsPolicyName = "movieReadCors";
 
 builder.Services.AddCors(options =>
 {
@@ -16,7 +16,7 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy.AllowAnyOrigin();
-            policy.AllowAnyMethod();
+            policy.WithMethods("GET");
             policy.AllowAnyHeader();
         });
 });
