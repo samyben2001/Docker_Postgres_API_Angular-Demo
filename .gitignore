@@ -49,7 +49,7 @@ Thumbs.db
 ## Get latest from `dotnet new gitignore`
 
 # dotenv files
-.env
+# .env
 
 # User-specific files
 *.rsuser
